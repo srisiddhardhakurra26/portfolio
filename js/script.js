@@ -1,5 +1,4 @@
-// Smooth scrolling animation
-$('a[href^="#"]').on('click', function (event) {
+$('a[href^="#"]').on('click', function(event) {
     var target = $(this.getAttribute('href'));
     if (target.length) {
       event.preventDefault();
@@ -8,31 +7,28 @@ $('a[href^="#"]').on('click', function (event) {
       }, 1000);
     }
   });
-  
-  // Intersection Observer for section animations
+
   const sections = document.querySelectorAll('.section');
-  
-  const options = {
-    root: null,
-    threshold: 0.2
-  };
-  
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('active');
-      } else {
-        entry.target.classList.remove('active');
-      }
-    });
-  }, options);
-  
-  sections.forEach(section => {
-    observer.observe(section);
+const options = {
+  root: null,
+  threshold: 0.2
+};
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
+    } else {
+      entry.target.classList.remove('active');
+    }
   });
-  
-  // Skills carousel
-  $('.skills-carousel').owlCarousel({
+}, options);
+
+sections.forEach(section => {
+  observer.observe(section);
+});
+
+$('.skills-carousel').owlCarousel({
     loop: true,
     margin: 20,
     autoplay: true,
@@ -50,3 +46,5 @@ $('a[href^="#"]').on('click', function (event) {
       }
     }
   });
+
+  var rellax = new Rellax('.parallax-container');
