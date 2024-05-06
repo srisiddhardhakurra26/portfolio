@@ -1,10 +1,13 @@
 /* Custom Theme Colors */
 :root {
-    --primary-color: #ff6b6b;
-    --secondary-color: #4ecdc4;
-    --background-color: #f7fff7;
-    --text-color: #292f36;
-    --heading-color: #ff6b6b;
+    --primary-color: #e3f08c;
+    --secondary-color: #5d7bbd;
+    --background-color: #1b1e21;
+    --text-color: #f1f1f1;
+    --heading-color: #f1f1f1;
+    --light-background-color: #f4f4f4;
+    --light-text-color: #333;
+    --light-heading-color: #2c3e50;
   }
   
   /* General Styles */
@@ -43,12 +46,12 @@
   .navbar-brand {
     font-size: 28px;
     font-weight: 700;
-    color: var(--background-color);
+    color: var(--text-color);
   }
   
   .nav-link {
     font-size: 18px;
-    color: var(--background-color);
+    color: var(--text-color);
     margin-left: 20px;
     transition: color 0.3s;
   }
@@ -58,16 +61,17 @@
   }
   
   /* About Section Styles */
+
   .profile-picture {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 50%;
-    border: 10px solid var(--background-color);
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    transform: scale(0.8);
-    transition: opacity 0.5s, transform 0.5s;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  @media (min-width: 992px) {
+    .profile-picture {
+      margin-bottom: 0;
+    }
   }
   
   .section.active .profile-picture {
@@ -75,8 +79,9 @@
     transform: scale(1);
   }
   
-  /* Education Section Styles */
-  .education-item {
+  /* Education and Experience Sections */
+  .education-item,
+  .experience-item {
     background-color: var(--background-color);
     padding: 30px;
     border-radius: 10px;
@@ -87,23 +92,7 @@
     transition: opacity 0.5s, transform 0.5s;
   }
   
-  .section.active .education-item {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  
-  /* Experience Section Styles */
-  .experience-item {
-    background-color: var(--background-color);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
-    opacity: 0;
-    transform: translateX(50px);
-    transition: opacity 0.5s, transform 0.5s;
-  }
-  
+  .section.active .education-item,
   .section.active .experience-item {
     opacity: 1;
     transform: translateX(0);
@@ -203,9 +192,26 @@
   /* Footer Styles */
   footer {
     background-color: var(--secondary-color);
-    color: var(--background-color);
+    color: var(--text-color);
     padding: 20px 0;
     text-align: center;
+  }
+  
+  /* Light Sections Styles */
+  .section.bg-light {
+    background-color: var(--light-background-color);
+    color: var(--light-text-color);
+  }
+  
+  .section.bg-light .section-title {
+    color: var(--light-heading-color);
+  }
+  
+  .section.bg-light .education-item,
+  .section.bg-light .experience-item,
+  .section.bg-light .project-item {
+    background-color: #fff;
+    color: var(--light-text-color);
   }
   
   @keyframes fadeIn {
@@ -222,7 +228,7 @@
   .section-title {
     animation: fadeIn 1s ease-in-out;
   }
-
+  
   .btn-primary {
     position: relative;
     overflow: hidden;
@@ -248,7 +254,7 @@
     height: 200px;
     opacity: 1;
   }
-
+  
   .section {
     opacity: 0;
     transform: translateY(50px);
@@ -259,7 +265,7 @@
     opacity: 1;
     transform: translateY(0);
   }
-
+  
   .skills-carousel .owl-item {
     opacity: 0.5;
     transform: scale(0.8);
@@ -270,7 +276,7 @@
     opacity: 1;
     transform: scale(1);
   }
-
+  
   .parallax-container {
     height: 400px;
     overflow: hidden;
@@ -280,4 +286,23 @@
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+  }
+
+  .skill-items {
+    margin-top: 30px;
+  }
+  
+  .skill-item {
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .skill-item i {
+    font-size: 48px;
+    margin-bottom: 10px;
+  }
+  
+  .skill-item h4 {
+    font-size: 18px;
+    margin-bottom: 0;
   }
